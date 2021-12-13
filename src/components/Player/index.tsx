@@ -22,6 +22,7 @@ const Player = ({ isTimeEnd }: Props) => {
   }, [isTimeEnd])
 
   const handlePlay = () => {
+    audioPlayer.current?.setAttribute('crossorigin', 'anonymous')
     audioPlayer.current?.play()
     setIsPlay(true)
   }
