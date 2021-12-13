@@ -22,7 +22,6 @@ const Player = ({ isTimeEnd }: Props) => {
   }, [isTimeEnd])
 
   const handlePlay = () => {
-    audioPlayer.current?.setAttribute('crossorigin', 'anonymous')
     audioPlayer.current?.play()
     setIsPlay(true)
   }
@@ -47,7 +46,10 @@ const Player = ({ isTimeEnd }: Props) => {
           <GiPlayButton onClick={handlePlay} size={30} />
         </button>
       )}
-      <audio ref={audioPlayer as any} src={soundMusic}></audio>
+      <audio
+        ref={audioPlayer as any}
+        src="https://centrodev.com.br/code-relaxd0dd79ce.mp3"
+      ></audio>
     </S.Wrapper>
   )
 }
