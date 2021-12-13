@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
+import { GoDiffAdded, GoDiffRemoved } from 'react-icons/go'
+
 import soundEndPomodoro from '../../assets/sounds/mixkit-game-level-completed-2059.wav'
 
 import * as S from './styles'
@@ -79,14 +81,31 @@ const Card = ({ changeIsEndTime }: Props) => {
     setSeconds(60)
   }
 
+  const handleDecrementTime = () => {
+    if (minutes > 5) setMinutes(minutes - 5)
+  }
+
+  const handleIncrementTime = () => {
+    if (minutes < 60) setMinutes(minutes + 5)
+  }
+
   return (
     <S.Wrapper>
       <audio ref={audioPlayer as any} src={soundEndPomodoro}></audio>
 
-      <p className="time">
-        {minutes}:
-        {seconds === 60 ? '00' : seconds < 10 ? `0${seconds}` : seconds}
-      </p>
+      <S.WrapperTime>
+        <button onClick={handleDecrementTime}>
+          <GoDiffRemoved size={28} />
+        </button>
+        <p className="time">
+          {minutes}:
+          {seconds === 60 ? '00' : seconds < 10 ? `0${seconds}` : seconds}
+        </p>
+        <button>
+          <GoDiffAdded onClick={handleIncrementTime} size={28} />
+        </button>
+      </S.WrapperTime>
+
       <S.WrapperActions>
         {isStart ? (
           <button onClick={handlePausePomodoro}>Pause</button>

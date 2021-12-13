@@ -28,3 +28,16 @@ export const WrapperActions = styled.div`
     margin: 12px;
   }
 `
+
+export const WrapperTime = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+
+  button {
+    background: transparent;
+    color: #f5f5f5;
+    border: none;
+  }
+`
